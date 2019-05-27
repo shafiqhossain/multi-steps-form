@@ -1,0 +1,161 @@
+{% if form.offer_step['#value']==1 %}
+	{{ form.header_text_1 }}
+	{{ form.header_text_2 }}
+	{{ form.header_text_3 }}
+	{{ form.header_text_4 }}
+	{{ form.header_text_5 }}
+
+	<div id="ultimate-offer-form-content" class="ultimate-offer-form-content">
+	  <div class="offer-row offer-zipcode">
+	  	<div class="offer-label">{{'Zipcode:'|t}}</div>
+	    <div class="offer-item">{{ form.zipcode }}</div>
+	  </div>
+	</div>
+	<div class="actions">{{ form.next }}</div>
+{% elseif form.offer_step['#value']==2 %}
+	{{ form.header_text_1 }}
+	{{ form.header_text_2 }}
+	{{ form.header_text_3 }}
+	{{ form.header_text_4 }}
+	{{ form.header_text_5 }}
+
+	<div id="ultimate-offer-form-content" class="ultimate-offer-form-content">
+	  <div class="offer-row offer-full-name">
+	  	<div class="offer-label">{{'Full Name:'|t}}</div>
+	    <div class="offer-item">{{ form.full_name }}</div>
+	  </div>
+	  <div class="offer-row offer-phone">
+	  	<div class="offer-label">{{'Phone:'|t}}</div>
+	    <div class="offer-item">{{ form.phone }}</div>
+	  </div>
+	  <div class="offer-row offer-email">
+	  	<div class="offer-label">{{'Email:'|t}}</div>
+	    <div class="offer-item">{{ form.email }}</div>
+	  </div>
+	</div>
+	<div class="actions">
+	  {{ form.prev }}
+	  {{ form.next }}
+	</div>
+{% elseif form.offer_step['#value']==3 %}
+	{{ form.header_text_1 }}
+	{{ form.header_text_2 }}
+	{{ form.header_text_3 }}
+	{{ form.header_text_4 }}
+	{{ form.header_text_5 }}
+
+	<div id="ultimate-offer-form-content" class="ultimate-offer-form-content">
+	  <div class="offer-row offer-address">
+	  	<div class="offer-label">{{'Address:'|t}}</div>
+	    <div class="offer-item">{{ form.address }}</div>
+	  </div>
+	  <div class="offer-row offer-city">
+	  	<div class="offer-label">{{'City:'|t}}</div>
+	    <div class="offer-item">{{ form.city }}</div>
+	  </div>
+	</div>
+	<div class="actions">
+	  {{ form.prev }}
+	  {{ form.next }}
+	</div>
+{% elseif form.offer_step['#value']==4 %}
+	{{ form.header_text_1 }}
+	{{ form.header_text_2 }}
+	{{ form.header_text_3 }}
+	{{ form.header_text_4 }}
+	{{ form.header_text_5 }}
+
+	<div id="ultimate-offer-form-content" class="ultimate-offer-form-content">
+	  <div class="offer-row offer-asking-price">
+	  	<div class="offer-label">{{'Asking Price:'|t}}</div>
+	    <div class="offer-item">{{ form.asking_price }}</div>
+	  </div>
+	  <div class="offer-row offer-selling-reason">
+	  	<div class="offer-label">{{'Reason of Selling:'|t}}</div>
+	    <div class="offer-item">{{ form.selling_reason }}</div>
+	  </div>
+	</div>
+	<div class="actions">
+	  {{ form.prev }}
+	  {{ form.next }}
+	</div>
+{% elseif form.offer_step['#value']==5 %}
+	{{ form.header_text_1 }}
+	{{ form.header_text_2 }}
+	{{ form.header_text_3 }}
+	{{ form.header_text_4 }}
+	{{ form.header_text_5 }}
+
+	<div id="ultimate-offer-form-content" class="ultimate-offer-form-content">
+	  <div class="offer-row offer-full-name">
+	  	<div class="offer-label">{{'Full Name:'|t}}</div>
+	    <div class="offer-item">{{ form.full_name }}</div>
+	  </div>
+	  <div class="offer-row offer-phone">
+	  	<div class="offer-label">{{'Phone:'|t}}</div>
+	    <div class="offer-item">{{ form.phone }}</div>
+	  </div>
+	  <div class="offer-row offer-email">
+	  	<div class="offer-label">{{'Email:'|t}}</div>
+	    <div class="offer-item">{{ form.email }}</div>
+	  </div>
+	  <div class="offer-row offer-address">
+	  	<div class="offer-label">{{'Address:'|t}}</div>
+	    <div class="offer-item">{{ form.address }}</div>
+	  </div>
+	  <div class="offer-row offer-city">
+	  	<div class="offer-label">{{'City:'|t}}</div>
+	    <div class="offer-item">{{ form.city }}</div>
+	  </div>
+	  <div class="offer-row offer-state">
+	  	<div class="offer-label">{{'State:'|t}}</div>
+	    <div class="offer-item">{{ form.state }}</div>
+	  </div>
+	  <div class="offer-row offer-zipcode">
+	  	<div class="offer-label">{{'Zipcode:'|t}}</div>
+	    <div class="offer-item">{{ form.zipcode }}</div>
+	  </div>
+	  <div class="offer-row offer-asking-price">
+	  	<div class="offer-label">{{'Asking Price:'|t}}</div>
+	    <div class="offer-item">{{ form.asking_price }}</div>
+	  </div>
+	  <div class="offer-row offer-selling-reason">
+	  	<div class="offer-label">{{'Reason of Selling:'|t}}</div>
+	    <div class="offer-item">{{ form.selling_reason }}</div>
+	  </div>
+	  <div class="offer-row offer-mortgage-balance">
+	  	<div class="offer-label">{{'Current Mortgage Balance:'|t}}</div>
+	    <div class="offer-item">{{ form.mortgage_balance }}</div>
+	  </div>
+	  <div class="offer-row offer-is-listed">
+	  	<div class="offer-label">{{'Is your property listed with a Realtor?'|t}}</div>
+	    <div class="offer-item">{{ form.is_listed }}</div>
+	  </div>
+	  <div class="offer-row offer-years-owned">
+	  	<div class="offer-label">{{'How many years have you owned the property?'|t}}</div>
+	    <div class="offer-item">{{ form.years_owned }}</div>
+	  </div>
+	  <div class="offer-row offer-how-quickly-sell">
+	  	<div class="offer-label">{{'How quickly will you sell it?'|t}}</div>
+	    <div class="offer-item">{{ form.how_quickly_sell }}</div>
+	  </div>
+	  <div class="offer-row offer-learn-about-us">
+	  	<div class="offer-label">{{'How did you first learn about us?'|t}}</div>
+	    <div class="offer-item">{{ form.learn_about_us }}</div>
+	  </div>
+	  <div class="offer-row offer-comments">
+	  	<div class="offer-label">{{'Any Comments:'|t}}</div>
+	    <div class="offer-item">{{ form.comments }}</div>
+	  </div>
+	</div>
+	<div class="actions">
+	  {{ form.prev }}
+	  {{ form.save_offer }}
+	</div>
+{% endif %}
+
+{{ form.offer_step }}
+{{ form.form_build_id }}
+{{ form.form_id }}
+{{ form.form_token }}
+{{ form.actions }}

@@ -1,0 +1,86 @@
+<?php
+
+/**
+ * @file
+ * Contains ultimate_offer.module
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Entity\EntityInterface;
+
+
+/**
+ * Implements hook_theme()
+ */
+function ultimate_offer_theme() {
+  $themes['ultimate_offer_form'] = [
+	'render element' => 'form',
+	'template' => 'ultimate_offer_form'
+  ];
+
+   return $themes;
+}
+
+/**
+  * Implementation of hook_ENTITY_TYPE_view()
+  *
+  * Ultimate offer can be viewed by the administrator only
+  */
+function ultimate_offer_entity_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+  if($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'ultimate_offers' && $view_mode == 'full') {
+    $account = \Drupal::currentUser();
+    if($account->id() == 0) {
+      drupal_set_message(t('Access Denied'));
+
+	  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+	  if($language == 'en') {
+	    $url = Url::fromRoute('<front>');
+	  }
+	  else {
+	    $url = Url::fromRoute('<front>', [], ['language' => $language]);
+	  }
+	  $redirect = new RedirectResponse($url->toString());
+	  return $redirect->send();
+    }
+
+    $roles = \Drupal::currentUser()->getRoles();
+    if(!in_array("Administrator", $roles)) {
+      drupal_set_message(t('Access Denied'));
+
+	  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+	  if($language == 'en') {
+	    $url = Url::fromRoute('<front>');
+	  }
+	  else {
+	    $url = Url::fromRoute('<front>', [], ['language' => $language]);
+	  }
+	  $redirect = new RedirectResponse($url->toString());
+	  return $redirect->send();
+    }
+  
+    $build['#cache']['max-age'] = 0;
+  }
+
+
+  //don't cache
+  \Drupal::service('page_cache_kill_switch')->trigger();
+}
+
+/**
+* Implements hook_mail().
+*/
+function ultimate_offer_mail($key, &$message, $params) {
+ $options = array(
+   'langcode' => $message['langcode'],
+ );
+ switch ($key) {
+   case 'create_article':
+     $message['from'] = $params['from'];
+     $message['subject'] = $params['title'];
+     $message['body'][] = $params['message'];
+     break;
+ }
+}

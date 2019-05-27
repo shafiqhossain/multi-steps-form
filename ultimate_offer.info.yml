@@ -1,0 +1,5 @@
+name: Ultimate Offer
+type: module
+description: A four steps offer form
+core: 8.x
+package: Other

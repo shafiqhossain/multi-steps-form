@@ -1,0 +1,8 @@
+# Ultimate HomeBuyers Offer
+ultimate_offer.route.ultimate_offer:
+  path: '/ultimate/homebuyers/offer'
+  defaults:
+    _form: '\Drupal\ultimate_offer\Form\UltimateOfferForm'
+    _title: 'Ultimate HomeBuyers Offer'
+  requirements:
+    _permission: 'access ultimate offer'
